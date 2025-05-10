@@ -16,6 +16,9 @@ const Home = () => {
   const [isLoadig, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsLoading(true);
+    }
     const loadWeather = async () => {
       function getCurrentPosition(): void {
         if ("geolocation" in navigator) {
@@ -57,7 +60,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-200 font-face">
       {isLoadig ? (
-        <div className="flex items-center justify-center w-full h-screen border border-gray-200 rounded-lg">
+        <div className="flex items-center justify-center w-full h-screen">
           <svg
             aria-hidden="true"
             className="w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
