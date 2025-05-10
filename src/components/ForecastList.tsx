@@ -17,8 +17,9 @@ const ForecastList: React.FC<{ forecastData: ForecastData[] }> = ({
     {}
   );
 
-  const isToday = (date: string) =>
-    new Date(date).toDateString() === new Date().toDateString();
+  const isToday = (date: string) => {
+    return new Date(date).getDate() === new Date().getDate();
+  };
 
   return (
     <>
